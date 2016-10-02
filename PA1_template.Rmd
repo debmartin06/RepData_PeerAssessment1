@@ -78,6 +78,7 @@ sum(NAsteps)
 2. Devise a strategy for filling in all of the missing values in the dataset. The strategy does not need to be sophisticated. For example, you could use the mean/median for that day, or the mean for that 5-minute interval, etc.
 
 ```{r}
+print('My strategy is to fill in the NA values with the previously calculated step means per interval')
 activitydfNA <- activitydf[NAsteps, ]
 activitydfNA$steps <- avgspi[match(activitydfNA$interval, avgspi$Interval),2]
 ```
@@ -105,8 +106,8 @@ median(totalspdfixed$Total.Steps)
 ```
 
 ```{r}
-mean(totalspdfixed$Total.Steps) - mean(totalspd$Total.Steps)
-median(totalspdfixed$Total.Steps) - median(totalspd$Total.Steps)
+print(paste('The difference in mean is ', mean(totalspdfixed$Total.Steps) - mean(totalspd$Total.Steps)))
+print(paste('The difference in median is ', median(totalspdfixed$Total.Steps) - median(totalspd$Total.Steps)))
 ```
 
 ## Are there differences in activity patterns between weekdays and weekends?

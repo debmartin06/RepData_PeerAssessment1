@@ -179,6 +179,8 @@ with(avgspi, plot(Interval, Total.Steps, type = 'l', main = 'Average Steps Per D
 <ol start="2" style="list-style-type: decimal">
 <li>Devise a strategy for filling in all of the missing values in the dataset. The strategy does not need to be sophisticated. For example, you could use the mean/median for that day, or the mean for that 5-minute interval, etc.</li>
 </ol>
+<pre class="r"><code>print('My strategy is to fill in the NA values with the previously calculated step means per interval')</code></pre>
+<pre><code>## [1] &quot;My strategy is to fill in the NA values with the previously calculated step means per interval&quot;</code></pre>
 <pre class="r"><code>activitydfNA &lt;- activitydf[NAsteps, ]
 activitydfNA$steps &lt;- avgspi[match(activitydfNA$interval, avgspi$Interval),2]</code></pre>
 <ol start="3" style="list-style-type: decimal">
@@ -196,10 +198,10 @@ hist(totalspdfixed$Total.Steps, xlab = 'Total Steps per Day', main = 'Histogram 
 <pre><code>## [1] 10766.19</code></pre>
 <pre class="r"><code>median(totalspdfixed$Total.Steps)</code></pre>
 <pre><code>## [1] 10766.19</code></pre>
-<pre class="r"><code>mean(totalspdfixed$Total.Steps) - mean(totalspd$Total.Steps)</code></pre>
-<pre><code>## [1] 0</code></pre>
-<pre class="r"><code>median(totalspdfixed$Total.Steps) - median(totalspd$Total.Steps)</code></pre>
-<pre><code>## [1] 1.188679</code></pre>
+<pre class="r"><code>print(paste('The difference in mean is ', mean(totalspdfixed$Total.Steps) - mean(totalspd$Total.Steps)))</code></pre>
+<pre><code>## [1] &quot;The difference in mean is  0&quot;</code></pre>
+<pre class="r"><code>print(paste('The difference in median is ', median(totalspdfixed$Total.Steps) - median(totalspd$Total.Steps)))</code></pre>
+<pre><code>## [1] &quot;The difference in median is  1.1886792452824&quot;</code></pre>
 </div>
 <div id="are-there-differences-in-activity-patterns-between-weekdays-and-weekends" class="section level2">
 <h2>Are there differences in activity patterns between weekdays and weekends?</h2>

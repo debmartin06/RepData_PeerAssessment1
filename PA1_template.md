@@ -101,6 +101,14 @@ sum(NAsteps)
 
 
 ```r
+print('My strategy is to fill in the NA values with the previously calculated step means per interval')
+```
+
+```
+## [1] "My strategy is to fill in the NA values with the previously calculated step means per interval"
+```
+
+```r
 activitydfNA <- activitydf[NAsteps, ]
 activitydfNA$steps <- avgspi[match(activitydfNA$interval, avgspi$Interval),2]
 ```
@@ -143,19 +151,19 @@ median(totalspdfixed$Total.Steps)
 
 
 ```r
-mean(totalspdfixed$Total.Steps) - mean(totalspd$Total.Steps)
+print(paste('The difference in mean is ', mean(totalspdfixed$Total.Steps) - mean(totalspd$Total.Steps)))
 ```
 
 ```
-## [1] 0
+## [1] "The difference in mean is  0"
 ```
 
 ```r
-median(totalspdfixed$Total.Steps) - median(totalspd$Total.Steps)
+print(paste('The difference in median is ', median(totalspdfixed$Total.Steps) - median(totalspd$Total.Steps)))
 ```
 
 ```
-## [1] 1.188679
+## [1] "The difference in median is  1.1886792452824"
 ```
 
 ## Are there differences in activity patterns between weekdays and weekends?
